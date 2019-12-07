@@ -111,7 +111,7 @@ stages:
           - task: SqlAzureDacpacDeployment@1
             displayName: Generate schema change script
             inputs:
-              azureSubscription: '$subscription'
+              azureSubscription: 'TW'
               authenticationType: 'server'
               serverName: '$(servername).database.windows.net'
               databaseName: '$(databasename)'
@@ -149,7 +149,7 @@ stages:
           - task: SqlAzureDacpacDeployment@1
             displayName: 'Deploy SQL schema'
             inputs:
-              azureSubscription: '$subscription'
+              azureSubscription: 'TW'
               authenticationType: 'server'
               serverName: '$(servername).database.windows.net'
               databaseName: '$(databasename)'
@@ -179,7 +179,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$subscription'
+              azureSubscription: 'TW'
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 
@@ -202,7 +202,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$subscription'
+              azureSubscription: 'TW'
               appName: '$(WebAppNameTest)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 
@@ -225,6 +225,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$subscription'
+              azureSubscription: 'TW'
               appName: '$(WebAppNameStaging)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
